@@ -4,8 +4,6 @@ info:
   type: workspace
 
 collections:
-  - name: "OpenGarage"
-    path: "/Users/myanello/Documents/repos/personal/Bruno/collections/OpenGarage/"
   - name: "Split Budget"
     path: "/Users/myanello/Documents/repos/personal/Bruno/collections/Split Budget/"
   - name: "Authentik"
