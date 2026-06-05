@@ -1,0 +1,10 @@
+info:
+  name: Users
+  type: folder
+  seq: 3
+
+request:
+  auth: inherit
+  variables:
+    - name: pk
+      value: "887"

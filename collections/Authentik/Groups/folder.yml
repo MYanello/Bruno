@@ -1,0 +1,12 @@
+info:
+  name: Groups
+  type: folder
+  seq: 1
+
+request:
+  auth: inherit
+  variables:
+    - name: uuid
+      value: ebf69b42-9582-49a2-adf7-b6031ccbfd17
+    - name: identifier
+      value: team_ml

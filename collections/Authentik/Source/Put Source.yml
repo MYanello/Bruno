@@ -1,0 +1,15 @@
+info:
+  name: Put Source
+  type: http
+  seq: 1
+
+http:
+  method: PUT
+  url: "{{host}}/api/v3/sources/oauth/{{source}}"
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

@@ -1,0 +1,6 @@
+name: Localhost
+variables:
+  - name: host
+    value: http://localhost:9001/
+  - secret: true
+    name: token

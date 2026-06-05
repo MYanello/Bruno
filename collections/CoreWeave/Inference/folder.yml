@@ -1,0 +1,12 @@
+info:
+  name: Inference
+  type: folder
+  seq: 1
+
+request:
+  auth: inherit
+  variables:
+    - name: GATEWAY_ID
+      value: 0681aa9c-0edb-4394-875f-7f64a4f50bab
+    - name: DEPLOYMENT_ID
+      value: e3481c29-cb33-48d7-b9fa-1b8536cc03dc

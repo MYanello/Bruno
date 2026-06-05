@@ -1,0 +1,6 @@
+name: CW1690
+variables:
+  - secret: true
+    name: API_TOKEN
+  - name: ENDPOINT
+    value: https://api.coreweave.com

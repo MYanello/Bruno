@@ -1,0 +1,28 @@
+meta {
+  name: CreateTransaction
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{url}}/api/transactions
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "description": "test",
+    "amount": "1.13",
+    "date": "2024-01-15T10:30:00Z",
+    "type": "income",
+    "with_user_ids": [
+      1
+    ]
+  }
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}

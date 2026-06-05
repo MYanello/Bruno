@@ -1,0 +1,6 @@
+name: Staging
+variables:
+  - name: host
+    value: https://login-sa-dev.core-services.ingress.coreweave.com
+  - secret: true
+    name: token

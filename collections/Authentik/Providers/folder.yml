@@ -1,0 +1,15 @@
+info:
+  name: Providers
+  type: folder
+  seq: 1
+
+request:
+  headers:
+    - name: ""
+      value: ""
+  auth: inherit
+  variables:
+    - name: provider_name
+      value: oidc-8e3315
+    - name: provider_pk
+      value: "222"

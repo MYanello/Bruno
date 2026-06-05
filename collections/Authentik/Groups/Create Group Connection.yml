@@ -1,0 +1,28 @@
+info:
+  name: Create Group Connection
+  type: http
+  seq: 3
+
+http:
+  method: POST
+  url: "{{host}}/sources/group_connections/oauth/"
+  body:
+    type: json
+    data: |-
+      {
+        "group": "{{uuid}}",
+        "source": "{{source}}",
+        "identifier": "{{identifier}}"
+      }
+  auth: inherit
+
+runtime:
+  variables:
+    - name: source
+      value: 2c2edc3e-6a54-4ad3-b0d8-2efba2db0fa6
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

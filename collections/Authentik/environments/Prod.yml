@@ -1,0 +1,6 @@
+name: Prod
+variables:
+  - name: host
+    value: https://login-sa.core-services.ingress.coreweave.com
+  - secret: true
+    name: token

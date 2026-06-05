@@ -1,0 +1,30 @@
+info:
+  name: Patch Source
+  type: http
+  seq: 4
+
+http:
+  method: PATCH
+  url: "{{host}}/api/v3/sources/oauth/{{source}}/"
+  body:
+    type: json
+    data: |-
+      {
+        "name": "cw623e-gsuite",
+        "slug": "cw623e-gsuite",
+        "provider_type": "google",
+        "enrollment_flow": "d41d1922-4617-4158-b549-aefa4c443bd6",
+        "authentication_flow": "2a83a3c3-3538-49e0-90f0-d9dd3bf3ecc7"
+      }
+  auth: inherit
+
+runtime:
+  variables:
+    - name: source
+      value: cw623e-gsuite
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
