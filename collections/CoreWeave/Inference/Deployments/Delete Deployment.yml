@@ -1,0 +1,15 @@
+info:
+  name: Delete Deployment
+  type: http
+  seq: 5
+
+http:
+  method: DELETE
+  url: "{{ENDPOINT}}/v1alpha1/inference/deployments/{{DEPLOYMENT_ID}}"
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

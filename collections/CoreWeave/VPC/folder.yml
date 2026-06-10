@@ -1,0 +1,10 @@
+info:
+  name: VPC
+  type: folder
+  seq: 7
+
+request:
+  auth: inherit
+  variables:
+    - name: VPC_ID
+      value: ""

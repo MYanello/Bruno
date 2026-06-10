@@ -1,0 +1,15 @@
+info:
+  name: Delete Gateway
+  type: http
+  seq: 5
+
+http:
+  method: DELETE
+  url: "{{ENDPOINT}}/v1alpha1/inference/gateways/{{GATEWAY_ID}}"
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

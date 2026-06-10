@@ -1,0 +1,12 @@
+info:
+  name: Storage
+  type: folder
+  seq: 2
+
+request:
+  auth: inherit
+  variables:
+    - name: BUCKET_NAME
+      value: ace-inference-test
+    - name: ACCESS_KEY_ID
+      value: CWQAVOCDZGJTTAVV

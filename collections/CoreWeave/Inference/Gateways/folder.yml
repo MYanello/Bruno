@@ -1,0 +1,10 @@
+info:
+  name: Gateways
+  type: folder
+  seq: 1
+
+request:
+  auth: inherit
+  variables:
+    - name: GATEWAY_ID
+      value: 0681aa9c-0edb-4394-875f-7f64a4f50bab

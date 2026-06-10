@@ -1,0 +1,22 @@
+info:
+  name: Update Managed Runner
+  type: http
+  seq: 4
+
+http:
+  method: PATCH
+  url: "{{ENDPOINT}}/v1beta2/sandbox/managed-runners/{{RUNNER_ID}}"
+  body:
+    type: json
+    data: |-
+      {
+        "managed_spec": {},
+        "profile_bindings": []
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

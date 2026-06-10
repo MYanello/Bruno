@@ -1,0 +1,15 @@
+info:
+  name: Delete Managed Runner
+  type: http
+  seq: 5
+
+http:
+  method: DELETE
+  url: "{{ENDPOINT}}/v1beta2/sandbox/managed-runners/{{RUNNER_ID}}"
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

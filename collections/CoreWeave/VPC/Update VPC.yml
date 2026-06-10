@@ -1,0 +1,22 @@
+info:
+  name: Update VPC
+  type: http
+  seq: 5
+
+http:
+  method: PATCH
+  url: "{{ENDPOINT}}/v1beta1/networking/vpcs/{{VPC_ID}}"
+  body:
+    type: json
+    data: |-
+      {
+        "name": "myanello-vpc",
+        "cidr": "10.0.0.0/16"
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

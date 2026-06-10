@@ -1,0 +1,26 @@
+info:
+  name: Create Capacity Claim
+  type: http
+  seq: 4
+
+http:
+  method: POST
+  url: "{{ENDPOINT}}/v1alpha1/inference/capacityclaims"
+  body:
+    type: json
+    data: |-
+      {
+        "name": "myanello-capacity",
+        "resources": {
+          "instanceId": "nvidia-h100-80gb",
+          "instanceCount": 1,
+          "zones": ["RNO2A"]
+        }
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

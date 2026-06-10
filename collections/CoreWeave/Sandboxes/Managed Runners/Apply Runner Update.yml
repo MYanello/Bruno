@@ -1,0 +1,15 @@
+info:
+  name: Apply Runner Update
+  type: http
+  seq: 6
+
+http:
+  method: POST
+  url: "{{ENDPOINT}}/v1beta2/sandbox/managed-runners/{{RUNNER_ID}}:apply-update"
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

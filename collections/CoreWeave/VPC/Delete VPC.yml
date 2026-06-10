@@ -1,0 +1,15 @@
+info:
+  name: Delete VPC
+  type: http
+  seq: 4
+
+http:
+  method: DELETE
+  url: "{{ENDPOINT}}/v1beta1/networking/vpcs/{{VPC_ID}}"
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

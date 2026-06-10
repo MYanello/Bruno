@@ -1,0 +1,44 @@
+info:
+  name: Create Deployment
+  type: http
+  seq: 4
+
+http:
+  method: POST
+  url: "{{ENDPOINT}}/v1alpha1/inference/deployments"
+  body:
+    type: json
+    data: |-
+      {
+        "name": "myanello-qwen35-08b",
+        "gatewayIds": [
+          "{{GATEWAY_ID}}"
+        ],
+        "runtime": {
+          "engine": "vllm",
+          "version": "0.21.0+crwv.2"
+        },
+        "resources": {
+          "instanceType": "gd-8xh100ib-i128",
+          "gpuCount": 1
+        },
+        "model": {
+          "name": "qwen3.5-0.8b",
+          "bucket": "dedicated-inference",
+          "path": "Qwen3.5-0.8B"
+        },
+        "autoscaling": {
+          "min": 1,
+          "max": 1
+        },
+        "traffic": {
+          "weight": 100
+        }
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

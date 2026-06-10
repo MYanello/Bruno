@@ -1,0 +1,21 @@
+info:
+  name: Create Profile Template
+  type: http
+  seq: 3
+
+http:
+  method: POST
+  url: "{{ENDPOINT}}/v1beta2/sandbox/profile-templates"
+  body:
+    type: json
+    data: |-
+      {
+        "spec": {}
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

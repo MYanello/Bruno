@@ -1,0 +1,22 @@
+info:
+  name: AuthCanI
+  type: http
+  seq: 8
+
+http:
+  method: POST
+  url: "{{ENDPOINT}}/v1/cwobject/auth/can-i"
+  body:
+    type: json
+    data: |-
+      {
+        "actions": ["cwobject:ListBucketInfo"],
+        "resources": ["*"]
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

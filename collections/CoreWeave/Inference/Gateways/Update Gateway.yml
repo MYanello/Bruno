@@ -1,0 +1,27 @@
+info:
+  name: Update Gateway
+  type: http
+  seq: 6
+
+http:
+  method: PATCH
+  url: "{{ENDPOINT}}/v1alpha1/inference/gateways/{{GATEWAY_ID}}"
+  body:
+    type: json
+    data: |-
+      {
+        "id": "{{GATEWAY_ID}}",
+        "name": "myanello",
+        "zones": ["RNO2A"],
+        "coreWeaveAuth": {},
+        "bodyBasedRouting": {
+          "apiType": "API_TYPE_OPENAI"
+        }
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

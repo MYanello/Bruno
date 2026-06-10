@@ -1,0 +1,15 @@
+info:
+  name: List Capacity Claims
+  type: http
+  seq: 1
+
+http:
+  method: GET
+  url: "{{ENDPOINT}}/v1alpha1/inference/capacityclaims"
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

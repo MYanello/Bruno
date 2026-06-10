@@ -1,0 +1,30 @@
+info:
+  name: Update Deployment
+  type: http
+  seq: 6
+
+http:
+  method: PATCH
+  url: "{{ENDPOINT}}/v1alpha1/inference/deployments/{{DEPLOYMENT_ID}}"
+  body:
+    type: json
+    data: |-
+      {
+        "id": "{{DEPLOYMENT_ID}}",
+        "name": "myanello-qwen35-08b",
+        "gatewayIds": ["{{GATEWAY_ID}}"],
+        "autoscaling": {
+          "min": 1,
+          "max": 1
+        },
+        "traffic": {
+          "weight": 100
+        }
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

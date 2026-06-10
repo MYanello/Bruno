@@ -1,0 +1,15 @@
+info:
+  name: Get Gateway Params
+  type: http
+  seq: 2
+
+http:
+  method: GET
+  url: "{{ENDPOINT}}/v1alpha1/inference/gateways/parameters"
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

@@ -1,0 +1,10 @@
+info:
+  name: Managed Runners
+  type: folder
+  seq: 1
+
+request:
+  auth: inherit
+  variables:
+    - name: RUNNER_ID
+      value: ""

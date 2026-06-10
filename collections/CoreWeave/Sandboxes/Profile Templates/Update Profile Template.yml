@@ -1,0 +1,21 @@
+info:
+  name: Update Profile Template
+  type: http
+  seq: 4
+
+http:
+  method: PATCH
+  url: "{{ENDPOINT}}/v1beta2/sandbox/profile-templates/{{PROFILE_TEMPLATE_ID}}"
+  body:
+    type: json
+    data: |-
+      {
+        "spec": {}
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

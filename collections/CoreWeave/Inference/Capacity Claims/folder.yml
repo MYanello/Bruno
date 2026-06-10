@@ -1,0 +1,10 @@
+info:
+  name: Capacity Claims
+  type: folder
+  seq: 3
+
+request:
+  auth: inherit
+  variables:
+    - name: CAPACITY_CLAIM_ID
+      value: ""
