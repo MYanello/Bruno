@@ -1,0 +1,23 @@
+meta {
+  name: API Token
+  type: http
+  seq: 6
+}
+
+post {
+  url: {{url}}/api/api-keys
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "email": "marcus@yanello.net",
+    "password": "testpassword"
+  }
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}

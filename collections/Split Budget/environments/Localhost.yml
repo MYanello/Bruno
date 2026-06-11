@@ -1,0 +1,9 @@
+name: Localhost
+variables:
+  - name: url
+    value: http://localhost:8080
+  - name: token
+    value: ""
+  - secret: true
+    name: adminToken
+    value: ""

@@ -1,3 +1,13 @@
+auth {
+  mode: bearer
+}
+
+auth:bearer {
+  token: {{jwt-token}}
+}
+
 vars:pre-request {
   url: http://localhost:8080
+  token: {{sessionToken}}
+  adminToken: 
 }

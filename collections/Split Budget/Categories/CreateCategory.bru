@@ -1,0 +1,23 @@
+meta {
+  name: CreateCategory
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{url}}/api/categories
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "name": "Groceries",
+    "color": "#FF5733"
+  }
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}
