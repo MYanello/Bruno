@@ -1,0 +1,12 @@
+info:
+  name: Registry
+  type: folder
+  seq: 7
+
+request:
+  auth: inherit
+  variables:
+    - name: NAMESPACE
+      value: myanello-2
+    - name: ZONE
+      value: us-east-01a

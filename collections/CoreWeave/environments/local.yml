@@ -1,18 +1,19 @@
-name: CW1690
+name: local
 variables:
+  - secret: false
+    name: ENDPOINT
+    value: http://localhost:8090
   - secret: true
     name: API_TOKEN
-  - name: ENDPOINT
-    value: https://api.coreweave.com
   - secret: false
     name: ORG_UID
-    value: ""
+    value: org-registry-api-e2e
   - secret: false
     name: NAMESPACE
     value: cw-myanello
   - secret: false
     name: ZONE
-    value: us-east-01a
+    value: us-east-1
   - secret: false
     name: ACTIONS
     value: admin_registry_namespaces,admin_registry_content

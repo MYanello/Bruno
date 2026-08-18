@@ -1,0 +1,7 @@
+name: CW623E
+variables:
+  - name: ENDPOINT
+    value: https://api.coreweave.com
+  - secret: true
+    name: API_TOKEN
+    description: ""

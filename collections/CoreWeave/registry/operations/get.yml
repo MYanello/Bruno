@@ -1,0 +1,18 @@
+info:
+  name: Get Operation
+  type: http
+  seq: 2
+
+http:
+  method: GET
+  url: "{{ENDPOINT}}/v1alpha1/registry/namespaces/{{NAMESPACE}}/operations/{{OPERATION_ID}}"
+  auth: inherit
+
+headers:
+  X-Remote-OrgUid: "{{ORG_UID}}"
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

@@ -1,0 +1,42 @@
+info:
+  name: Update Access Config - Anonymous Pull
+  type: http
+  seq: 2
+
+http:
+  method: PUT
+  url: "{{ENDPOINT}}/v1alpha1/registry/namespaces/{{NAMESPACE}}/accessConfiguration"
+  body:
+    type: json
+    data: |-
+      {
+        "parent": "namespaces/{{NAMESPACE}}",
+        "etag": "{{ETAG}}",
+        "registryAccessConfiguration": {
+          "name": "namespaces/{{NAMESPACE}}/accessConfiguration",
+          "policySets": [
+            {
+              "id": "anonymous-pull",
+              "identitySelector": "REGISTRY_IDENTITY_SELECTOR_ANONYMOUS",
+              "rules": [
+                {
+                  "id": "pull",
+                  "expression": "request['type'] == 'repository' && request['actions'] == ['pull']"
+                }
+              ]
+            }
+          ]
+        }
+      }
+  auth: inherit
+
+headers:
+  Content-Type: application/json
+  X-Remote-OrgUid: "{{ORG_UID}}"
+  X-Remote-Console-Actions: "{{ACTIONS}}"
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

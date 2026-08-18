@@ -1,9 +1,10 @@
-name: CW1690
+name: production
 variables:
+  - secret: false
+    name: ENDPOINT
+    value: https://api.coreweave.com
   - secret: true
     name: API_TOKEN
-  - name: ENDPOINT
-    value: https://api.coreweave.com
   - secret: false
     name: ORG_UID
     value: ""

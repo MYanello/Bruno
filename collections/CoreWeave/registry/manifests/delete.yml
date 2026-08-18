@@ -1,0 +1,29 @@
+info:
+  name: Delete Registry Manifest
+  type: http
+  seq: 3
+
+http:
+  method: DELETE
+  url: "{{ENDPOINT}}/v1alpha1/registry/namespaces/{{NAMESPACE}}/manifests:delete"
+  body:
+    type: json
+    data: |-
+      {
+        "parent": "namespaces/{{NAMESPACE}}",
+        "repository": "{{REPOSITORY}}",
+        "digest": "{{DIGEST}}",
+        "idempotencyKey": "{{$guid}}"
+      }
+  auth: inherit
+
+headers:
+  Content-Type: application/json
+  X-Remote-OrgUid: "{{ORG_UID}}"
+  X-Remote-Console-Actions: "{{ACTIONS}}"
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

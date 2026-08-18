@@ -1,0 +1,29 @@
+info:
+  name: Delete Registry Tag
+  type: http
+  seq: 2
+
+http:
+  method: DELETE
+  url: "{{ENDPOINT}}/v1alpha1/registry/namespaces/{{NAMESPACE}}/tags:delete"
+  body:
+    type: json
+    data: |-
+      {
+        "parent": "namespaces/{{NAMESPACE}}",
+        "repository": "{{REPOSITORY}}",
+        "tag": "{{TAG}}",
+        "idempotencyKey": "{{$guid}}"
+      }
+  auth: inherit
+
+headers:
+  Content-Type: application/json
+  X-Remote-OrgUid: "{{ORG_UID}}"
+  X-Remote-Console-Actions: "{{ACTIONS}}"
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

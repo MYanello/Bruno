@@ -1,0 +1,21 @@
+info:
+  name: Delete Registry Namespace
+  type: http
+  seq: 5
+
+http:
+  method: DELETE
+  url: "{{ENDPOINT}}/v1alpha1/registry/namespaces/{{NAMESPACE}}"
+  auth: inherit
+
+query:
+  force: false
+
+headers:
+  X-Remote-OrgUid: "{{ORG_UID}}"
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

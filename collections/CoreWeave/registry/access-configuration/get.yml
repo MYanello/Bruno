@@ -1,0 +1,15 @@
+info:
+  name: Get Registry Access Configuration
+  type: http
+  seq: 1
+
+http:
+  method: GET
+  url: "{{ENDPOINT}}/v1alpha1/registry/namespaces/{{NAMESPACE}}/accessConfiguration"
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

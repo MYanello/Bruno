@@ -1,0 +1,22 @@
+info:
+  name: List Registry Referrers
+  type: http
+  seq: 1
+
+http:
+  method: GET
+  url: "{{ENDPOINT}}/v1alpha1/registry/namespaces/{{NAMESPACE}}/referrers"
+  auth: inherit
+
+query:
+  repository: "{{REPOSITORY}}"
+  subjectDigest: "{{SUBJECT_DIGEST}}"
+
+headers:
+  X-Remote-OrgUid: "{{ORG_UID}}"
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

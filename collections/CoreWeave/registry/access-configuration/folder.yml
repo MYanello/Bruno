@@ -1,0 +1,10 @@
+info:
+  name: Access Configuration
+  type: folder
+  seq: 2
+
+request:
+  auth: inherit
+  variables:
+    - name: ETAG
+      value: ""

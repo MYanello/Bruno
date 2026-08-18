@@ -1,0 +1,27 @@
+info:
+  name: Update Registry Namespace Storage Quota
+  type: http
+  seq: 4
+
+http:
+  method: PATCH
+  url: "{{ENDPOINT}}/v1alpha1/registry/namespaces/{{NAMESPACE}}"
+  body:
+    type: json
+    data: |-
+      {
+        "registryNamespace": {
+          "name": "namespaces/{{NAMESPACE}}",
+          "storageQuotaBytes": "1073741824"
+        },
+        "updateMask": {
+          "paths": ["storage_quota_bytes"]
+        }
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

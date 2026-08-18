@@ -1,0 +1,42 @@
+info:
+  name: Update Access Config - Public Specific Repository
+  type: http
+  seq: 3
+
+http:
+  method: PUT
+  url: "{{ENDPOINT}}/v1alpha1/registry/namespaces/{{NAMESPACE}}/accessConfiguration"
+  body:
+    type: json
+    data: |-
+      {
+        "parent": "namespaces/{{NAMESPACE}}",
+        "etag": "{{ETAG}}",
+        "registryAccessConfiguration": {
+          "name": "namespaces/{{NAMESPACE}}/accessConfiguration",
+          "policySets": [
+            {
+              "id": "anonymous-pull-my-image",
+              "identitySelector": "REGISTRY_IDENTITY_SELECTOR_ANONYMOUS",
+              "rules": [
+                {
+                  "id": "pull-my-image",
+                  "expression": "request['type'] == 'repository' && request['actions'] == ['pull'] && request['repository'] == \"my-image\""
+                }
+              ]
+            }
+          ]
+        }
+      }
+  auth: inherit
+
+headers:
+  Content-Type: application/json
+  X-Remote-OrgUid: "{{ORG_UID}}"
+  X-Remote-Console-Actions: "{{ACTIONS}}"
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
