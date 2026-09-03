@@ -1,7 +1,7 @@
 info:
-  name: Update Access Config - Public Specific Repository
+  name: Anonymous Pull
   type: http
-  seq: 3
+  seq: 2
 
 http:
   method: PUT
@@ -16,12 +16,12 @@ http:
           "name": "namespaces/{{NAMESPACE}}/accessConfiguration",
           "policySets": [
             {
-              "id": "anonymous-pull-my-image",
+              "id": "anonymous-pull",
               "identitySelector": "REGISTRY_IDENTITY_SELECTOR_ANONYMOUS",
               "rules": [
                 {
-                  "id": "pull-my-image",
-                  "expression": "request['type'] == 'repository' && request['actions'] == ['pull'] && request['repository'] == \"my-image\""
+                  "id": "anon-pull",
+                  "expression": "request['type'] == ['repository'] && request['actions'] == ['pull']"
                 }
               ]
             }
@@ -29,11 +29,6 @@ http:
         }
       }
   auth: inherit
-
-headers:
-  Content-Type: application/json
-  X-Remote-OrgUid: "{{ORG_UID}}"
-  X-Remote-Console-Actions: "{{ACTIONS}}"
 
 settings:
   encodeUrl: true

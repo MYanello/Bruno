@@ -1,0 +1,34 @@
+info:
+  name: Update Access Policy Set
+  type: http
+  seq: 3
+
+http:
+  method: PUT
+  url: "{{ENDPOINT}}/v1alpha1/registry/namespaces/{{NAMESPACE}}/accessConfiguration/policySets/{{POLICY_SET_ID}}"
+  body:
+    type: json
+    data: |-
+      {
+        "parent": "namespaces/{{NAMESPACE}}",
+        "policySetId": "{{POLICY_SET_ID}}",
+        "etag": "{{ETAG}}",
+        "policySet": {
+          "id": "{{POLICY_SET_ID}}",
+          "identitySelector": "REGISTRY_IDENTITY_SELECTOR_ANONYMOUS",
+          "rules": [
+            {
+              "id": "pull",
+              "expression": "request['type'] == 'repository' && request['actions'] == ['pull']"
+            }
+          ]
+        }
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+  forwardAuthorizationHeader: true

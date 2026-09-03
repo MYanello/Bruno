@@ -7,6 +7,6 @@ request:
   auth: inherit
   variables:
     - name: NAMESPACE
-      value: cw-myanello-2
+      value: cw-myanello
     - name: ZONE
       value: us-east-01a

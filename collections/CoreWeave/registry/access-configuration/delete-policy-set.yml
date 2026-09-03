@@ -1,11 +1,11 @@
 info:
-  name: Delete Registry Namespace
+  name: Delete Access Policy Set
   type: http
-  seq: 5
+  seq: 4
 
 http:
   method: DELETE
-  url: "{{ENDPOINT}}/v1alpha1/registry/namespaces/{{NAMESPACE}}"
+  url: "{{ENDPOINT}}/v1alpha1/registry/namespaces/{{NAMESPACE}}/accessConfiguration/policySets/{{POLICY_SET_ID}}"
   auth: inherit
 
 settings:

@@ -6,14 +6,10 @@ info:
 http:
   method: GET
   url: "{{ENDPOINT}}/v1alpha1/registry/namespaces/{{NAMESPACE}}/manifests:get"
+  body:
+    type: json
+    data: ""
   auth: inherit
-
-query:
-  repository: "{{REPOSITORY}}"
-  tag: "{{TAG}}"
-
-headers:
-  X-Remote-OrgUid: "{{ORG_UID}}"
 
 settings:
   encodeUrl: true

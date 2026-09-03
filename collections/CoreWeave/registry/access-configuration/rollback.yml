@@ -1,0 +1,24 @@
+info:
+  name: Rollback Access Configuration
+  type: http
+  seq: 7
+
+http:
+  method: POST
+  url: "{{ENDPOINT}}/v1alpha1/registry/namespaces/{{NAMESPACE}}/accessConfiguration/revisions/{{REVISION}}:rollback"
+  body:
+    type: json
+    data: |-
+      {
+        "parent": "namespaces/{{NAMESPACE}}",
+        "revision": "{{REVISION}}",
+        "etag": "{{ETAG}}"
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+  forwardAuthorizationHeader: true
