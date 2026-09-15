@@ -1,0 +1,42 @@
+info:
+  name: GitHub OIDC
+  type: http
+  seq: 4
+
+http:
+  method: PUT
+  url: "{{ENDPOINT}}/v1alpha1/registry/namespaces/{{NAMESPACE}}/accessConfiguration"
+  body:
+    type: json
+    data: |-
+      {
+        "parent": "namespaces/{{NAMESPACE}}",
+        "etag": "{{ETAG}}",
+        "registryAccessConfiguration": {
+          "name": "namespaces/{{NAMESPACE}}/accessConfiguration",
+          "policySets": [
+            {
+              "id": "github",
+              "identitySelector": "REGISTRY_IDENTITY_SELECTOR_WORKLOAD_FEDERATION",
+              "rules": [
+                {
+                  "id": "org-push",
+                  "expression": "identity['issuer'] == 'https://token.actions.githubusercontent.com' && identity['claims']['repository_owner'] == '{{GITHUB_ORG}}' && request['type'] == 'repository' && request['action'] == 'push'"
+                },
+                {
+                  "id": "read-content",
+                  "expression": "identity['issuer'] == 'https://token.actions.githubusercontent.com' && identity['claims']['repository_owner'] == 'MYanello' && ((request['type'] == 'repository' && request['action'] == 'pull') || (request['type'] == 'registry' && request['action'] == 'catalog'))"
+                }
+              ]
+            }
+          ]
+        }
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+  forwardAuthorizationHeader: true

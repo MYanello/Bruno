@@ -6,5 +6,9 @@ info:
 request:
   auth: inherit
   variables:
+    - name: GITHUB_ORG
+      value: MYanello
     - name: ETAG
-      value: sCBW6khZRlPNBVbKWwUFm-9vWrbu3Od3BYOT95gQ9hc
+      value: VKkUOJ1RsQ7ZZG9qnU1KvCshLUCicUbk8XD2cnPDcEw
+    - name: POLICY_SET_ID
+      value: anonymous

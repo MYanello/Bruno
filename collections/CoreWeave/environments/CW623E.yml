@@ -2,6 +2,9 @@ name: CW623E
 variables:
   - name: ENDPOINT
     value: https://api.coreweave.com
+    description: ""
+  - name: ORG_UID
+    value: cw623e
+    description: ""
   - secret: true
     name: API_TOKEN
-    description: ""

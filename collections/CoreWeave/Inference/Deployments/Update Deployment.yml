@@ -11,14 +11,33 @@ http:
     data: |-
       {
         "id": "{{DEPLOYMENT_ID}}",
-        "name": "myanello-qwen35-08b",
-        "gatewayIds": ["{{GATEWAY_ID}}"],
+        "name": "{{DEPLOYMENT_NAME}}",
+        "gatewayIds": [
+          "{{GATEWAY_ID}}"
+        ],
         "autoscaling": {
           "min": 1,
           "max": 1
         },
+        "resources": {
+          "instanceType": "gd-8xh100ib-i128",
+          "gpuCount": 1
+        },
         "traffic": {
           "weight": 100
+        },
+        "model": {
+          "name": "3.8-27b-pirate",
+          "bucket": "myanello-fc",
+          "path": "fine-tuned-models/qwen/3.8-27b-pirate/77/"
+        },
+        "runtime": {
+          "engine": "dynamo-vllm",
+          "version": "0.29.0+crwv.1",
+          "engineConfig": {
+            "max-model-len": "12000",
+            "max-num-seqs": "200"
+          }
         }
       }
   auth: inherit
@@ -28,3 +47,4 @@ settings:
   timeout: 0
   followRedirects: true
   maxRedirects: 5
+  forwardAuthorizationHeader: true

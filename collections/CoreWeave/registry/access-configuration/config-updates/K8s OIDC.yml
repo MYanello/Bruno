@@ -1,7 +1,7 @@
 info:
-  name: Anonymous Pull
+  name: K8s OIDC
   type: http
-  seq: 2
+  seq: 6
 
 http:
   method: PUT
@@ -16,12 +16,12 @@ http:
           "name": "namespaces/{{NAMESPACE}}/accessConfiguration",
           "policySets": [
             {
-              "id": "anonymous-pull",
-              "identitySelector": "REGISTRY_IDENTITY_SELECTOR_ANONYMOUS",
+              "id": "{{POLICY_SET_ID}}",
+              "identitySelector": "REGISTRY_IDENTITY_SELECTOR_WORKLOAD_FEDERATION",
               "rules": [
                 {
-                  "id": "anon-pull",
-                  "expression": "request['type'] == ['repository'] && request['actions'] == ['pull']"
+                  "id": "org-push",
+                  "expression": "identity['issuer'] == 'https://token.actions.githubusercontent.com' && identity['claims']['repository_owner'] == '{{GITHUB_ORG}}' && request['type'] == 'repository' && request['action'] == 'push'"
                 }
               ]
             }
@@ -35,3 +35,4 @@ settings:
   timeout: 0
   followRedirects: true
   maxRedirects: 5
+  forwardAuthorizationHeader: true

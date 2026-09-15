@@ -1,39 +1,10 @@
 name: CW1690
 variables:
-  - secret: true
-    name: API_TOKEN
   - name: ENDPOINT
     value: https://api.coreweave.com
-  - secret: false
-    name: ORG_UID
-    value: ""
-  - secret: false
-    name: NAMESPACE
-    value: cw-myanello
-  - secret: false
-    name: ZONE
-    value: us-east-01a
-  - secret: false
-    name: ACTIONS
-    value: admin_registry_namespaces,admin_registry_content
-  - secret: false
-    name: READ_ACTIONS
-    value: read_registry_namespaces,read_registry_content
-  - secret: false
-    name: TAG
-    value: ""
-  - secret: false
-    name: REPOSITORY
-    value: ""
-  - secret: false
-    name: DIGEST
-    value: ""
-  - secret: false
-    name: SUBJECT_DIGEST
-    value: ""
-  - secret: false
-    name: OPERATION_ID
-    value: ""
-  - secret: false
-    name: ETAG
-    value: ""
+    description: ""
+  - name: ORG_UID
+    value: cw1690
+    description: ""
+  - secret: true
+    name: API_TOKEN

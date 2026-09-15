@@ -1,0 +1,38 @@
+info:
+  name: Anonymous Pull
+  type: http
+  seq: 1
+
+http:
+  method: PUT
+  url: "{{ENDPOINT}}/v1alpha1/registry/namespaces/{{NAMESPACE}}/accessConfiguration"
+  body:
+    type: json
+    data: |-
+      {
+        "parent": "namespaces/{{NAMESPACE}}",
+        "etag": "{{ETAG}}",
+        "registryAccessConfiguration": {
+          "name": "namespaces/{{NAMESPACE}}/accessConfiguration",
+          "policySets": [
+            {
+              "id": "anonymous-pull",
+              "identitySelector": "REGISTRY_IDENTITY_SELECTOR_ANONYMOUS",
+              "rules": [
+                {
+                  "id": "pull",
+                  "expression": "request['type'] == 'repository' && request['action'] == 'pull'"
+                }
+              ]
+            }
+          ]
+        }
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+  forwardAuthorizationHeader: true

@@ -1,7 +1,7 @@
 info:
-  name: Update Access Policy Set
+  name: Add New Policy Set
   type: http
-  seq: 3
+  seq: 7
 
 http:
   method: PUT
@@ -15,16 +15,21 @@ http:
         "etag": "{{ETAG}}",
         "policySet": {
           "id": "{{POLICY_SET_ID}}",
-          "identitySelector": "REGISTRY_IDENTITY_SELECTOR_ANONYMOUS",
+          "identitySelector": "REGISTRY_IDENTITY_SELECTOR_WORKLOAD_FEDERATION",
           "rules": [
             {
-              "id": "pull",
-              "expression": "request['type'] == 'repository' && request['actions'] == ['pull']"
+              "id": "{{POLICY_SET_ID}}",
+              "expression": "identity['issuer'] == 'https://oidc.cks.coreweave.com/id/3f393060-f8dd-4833-96b7-756e37c43223' && request['type'] == 'repository' && request['action'] == 'push'}}"
             }
           ]
         }
       }
   auth: inherit
+
+runtime:
+  variables:
+    - name: POLICY_SET_ID
+      value: github
 
 settings:
   encodeUrl: true

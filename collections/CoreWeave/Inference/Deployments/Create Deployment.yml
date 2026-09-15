@@ -10,29 +10,32 @@ http:
     type: json
     data: |-
       {
-        "name": "myanello-qwen35-08b",
+        "name": "pirate",
         "gatewayIds": [
           "{{GATEWAY_ID}}"
         ],
-        "runtime": {
-          "engine": "vllm",
-          "version": "0.21.0+crwv.2"
+        "autoscaling": {
+          "min": 1,
+          "max": 1
         },
         "resources": {
           "instanceType": "gd-8xh100ib-i128",
           "gpuCount": 1
         },
-        "model": {
-          "name": "qwen3.5-0.8b",
-          "bucket": "dedicated-inference",
-          "path": "Qwen3.5-0.8B"
-        },
-        "autoscaling": {
-          "min": 1,
-          "max": 1
-        },
         "traffic": {
           "weight": 100
+        },
+        "model": {
+          "name": "qwen3.8-27b-pirate",
+          "bucket": "myanello-fc",
+          "path": "fine-tuned-models/qwen/3.8-27b-pirate/77/"
+        },
+        "runtime": {
+          "engine": "dynamo-vllm",
+          "version": "0.29.0+crwv.1",
+          "engineConfig": {
+            "max-model-len": "12000"
+          }
         }
       }
   auth: inherit
@@ -42,3 +45,4 @@ settings:
   timeout: 0
   followRedirects: true
   maxRedirects: 5
+  forwardAuthorizationHeader: true

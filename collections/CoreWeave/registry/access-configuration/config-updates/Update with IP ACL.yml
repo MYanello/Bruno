@@ -1,0 +1,41 @@
+info:
+  name: Update Access Config With IP ACL
+  type: http
+  seq: 5
+
+http:
+  method: PUT
+  url: "{{ENDPOINT}}/v1alpha1/registry/namespaces/{{NAMESPACE}}/accessConfiguration"
+  body:
+    type: json
+    data: |-
+      {
+        "parent": "namespaces/{{NAMESPACE}}",
+        "etag": "{{ETAG}}",
+        "registryAccessConfiguration": {
+          "name": "namespaces/{{NAMESPACE}}/accessConfiguration",
+          "policySets": [
+            {
+              "id": "anonymous-pull",
+              "identitySelector": "REGISTRY_IDENTITY_SELECTOR_ANONYMOUS",
+              "rules": [
+                {
+                  "id": "pull",
+                  "expression": "request['type'] == 'repository' && request['action'] == 'pull'"
+                }
+              ]
+            }
+          ],
+          "requestIpAcl": {
+            "allowCidrs": ["192.0.2.0/24"]
+          }
+        }
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+  forwardAuthorizationHeader: true

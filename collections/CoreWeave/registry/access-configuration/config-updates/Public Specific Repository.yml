@@ -1,7 +1,7 @@
 info:
   name: Public Specific Repository
   type: http
-  seq: 3
+  seq: 2
 
 http:
   method: PUT
@@ -21,7 +21,7 @@ http:
               "rules": [
                 {
                   "id": "pull-my-image",
-                  "expression": "request['type'] == 'repository' && request['actions'] == ['pull'] && request['repository'] == \"my-image\""
+                  "expression": "request['type'] == 'repository' && request['action'] == 'pull' && request['repository'] == \"{{IMAGE}}"\""
                 }
               ]
             }
@@ -35,3 +35,4 @@ settings:
   timeout: 0
   followRedirects: true
   maxRedirects: 5
+  forwardAuthorizationHeader: true

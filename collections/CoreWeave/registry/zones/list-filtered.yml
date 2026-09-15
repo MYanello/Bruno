@@ -1,16 +1,21 @@
 info:
-  name: Get Deployment Params
+  name: List Filtered Zones
   type: http
   seq: 2
 
 http:
   method: GET
-  url: "{{ENDPOINT}}/v1alpha1/inference/deployments/parameters"
+  url: "{{ENDPOINT}}/v1alpha1/registry/zones"
   auth: inherit
+
+query:
+  zones: "{{ZONE}}"
+
+headers:
+  X-Remote-OrgUid: "{{ORG_UID}}"
 
 settings:
   encodeUrl: true
   timeout: 0
   followRedirects: true
   maxRedirects: 5
-  forwardAuthorizationHeader: true

@@ -5,3 +5,10 @@ info:
 
 request:
   auth: inherit
+  variables:
+    - name: DEPLOYMENT_ID
+      value: 418f3ce7-7fec-4153-80fd-e23a8f5b52c0
+    - name: GATEWAY_ID
+      value: 5ce21f45-6eb3-4fa6-af8a-76af38968026
+    - name: DEPLOYMENT_NAME
+      value: pirate
