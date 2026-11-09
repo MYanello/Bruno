@@ -5,28 +5,22 @@ info:
 
 http:
   method: PUT
-  url: "{{ENDPOINT}}/v1alpha1/registry/namespaces/{{NAMESPACE}}/accessConfiguration"
+  url: "{{ENDPOINT}}/v1alpha1/registry/namespaces/{{NAMESPACE}}/accessConfiguration/policySets/main"
   body:
     type: json
     data: |-
       {
-        "parent": "namespaces/{{NAMESPACE}}",
-        "etag": "{{ETAG}}",
-        "registryAccessConfiguration": {
-          "name": "namespaces/{{NAMESPACE}}/accessConfiguration",
-          "policySets": [
+        "policySet": {
+          "id": "main",
+          "identitySelector": "REGISTRY_IDENTITY_SELECTOR_ANONYMOUS",
+          "rules": [
             {
-              "id": "anonymous-pull",
-              "identitySelector": "REGISTRY_IDENTITY_SELECTOR_ANONYMOUS",
-              "rules": [
-                {
-                  "id": "pull",
-                  "expression": "request['type'] == 'repository' && request['action'] == 'pull'"
-                }
-              ]
+              "id": "public-pull",
+              "expression": "identity['org_id'] == 'cw623e' && request['type'] == 'repository' && request['action'] == 'pull'"
             }
           ]
-        }
+        },
+        "etag": "{{ETAG}}"
       }
   auth: inherit
 

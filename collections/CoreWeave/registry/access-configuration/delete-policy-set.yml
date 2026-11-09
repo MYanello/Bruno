@@ -8,6 +8,11 @@ http:
   url: "{{ENDPOINT}}/v1alpha1/registry/namespaces/{{NAMESPACE}}/accessConfiguration/policySets/{{POLICY_SET_ID}}"
   auth: inherit
 
+runtime:
+  variables:
+    - name: POLICY_SET_ID
+      value: main
+
 settings:
   encodeUrl: true
   timeout: 0

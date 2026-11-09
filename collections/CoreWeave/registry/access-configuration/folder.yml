@@ -9,6 +9,4 @@ request:
     - name: GITHUB_ORG
       value: MYanello
     - name: ETAG
-      value: VKkUOJ1RsQ7ZZG9qnU1KvCshLUCicUbk8XD2cnPDcEw
-    - name: POLICY_SET_ID
-      value: anonymous
+      value: 2Bs2RYZjGreKaileW6J-oJZaGZuqWxxW3v1LcnkUriQ

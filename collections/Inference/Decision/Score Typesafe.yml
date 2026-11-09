@@ -1,0 +1,26 @@
+info:
+  name: Score Typesafe
+  type: http
+  seq: 4
+
+http:
+  method: POST
+  url: "{{ENDPOINT}}/typesafe/v1/systemone"
+  body:
+    type: json
+    data: |-
+      {
+        "model": "{{MODEL}}",
+        "kind": "score",
+        "state": "Since upgrading to the latest release, streaming responses stop halfway through whenever a fallback model takes over. No requests work. 0 being trivial, 5 being critical",
+        "question": "How severe is this issue?",
+        "thinking": "off"
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+  forwardAuthorizationHeader: false

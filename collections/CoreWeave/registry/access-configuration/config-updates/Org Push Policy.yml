@@ -1,0 +1,39 @@
+info:
+  name: Org Push Policy
+  type: http
+  seq: 7
+
+http:
+  method: PUT
+  url: "{{ENDPOINT}}/v1alpha1/registry/namespaces/{{NAMESPACE}}/accessConfiguration/policySets/{{POLICY_SET_ID}}"
+  body:
+    type: json
+    data: |-
+      {
+        "parent": "namespaces/{{NAMESPACE}}",
+        "policySetId": "main",
+        "etag": "{{ETAG}}",
+        "policySet": {
+          "id": "main",
+          "identitySelector": "REGISTRY_IDENTITY_SELECTOR_COREWEAVE",
+          "rules": [
+            {
+              "id": "org-push",
+              "expression": "identity['org_id'] == 'cw623e' && request['type'] == 'repository' && request['action'] == 'push'"
+            }
+          ]
+        }
+      }
+  auth: inherit
+
+runtime:
+  variables:
+    - name: POLICY_SET_ID
+      value: cwtoken
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+  forwardAuthorizationHeader: true

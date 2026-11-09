@@ -10,6 +10,8 @@ collections:
     path: "/Users/myanello/Documents/repos/personal/Bruno/collections/Authentik"
   - name: "CoreWeave"
     path: "/Users/myanello/Documents/repos/personal/Bruno/collections/CoreWeave"
+  - name: "Inference"
+    path: "collections/Inference"
 
 specs:
 

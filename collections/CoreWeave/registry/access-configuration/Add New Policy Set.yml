@@ -11,15 +11,15 @@ http:
     data: |-
       {
         "parent": "namespaces/{{NAMESPACE}}",
-        "policySetId": "{{POLICY_SET_ID}}",
+        "policySetId": "main",
         "etag": "{{ETAG}}",
         "policySet": {
-          "id": "{{POLICY_SET_ID}}",
-          "identitySelector": "REGISTRY_IDENTITY_SELECTOR_WORKLOAD_FEDERATION",
+          "id": "main",
+          "identitySelector": "REGISTRY_IDENTITY_SELECTOR_COREWEAVE",
           "rules": [
             {
-              "id": "{{POLICY_SET_ID}}",
-              "expression": "identity['issuer'] == 'https://oidc.cks.coreweave.com/id/3f393060-f8dd-4833-96b7-756e37c43223' && request['type'] == 'repository' && request['action'] == 'push'}}"
+              "id": "org-push",
+              "expression": "identity['org_id'] == 'cw623e' && request['type'] == 'repository' && request['action'] == 'push'"
             }
           ]
         }
@@ -29,7 +29,7 @@ http:
 runtime:
   variables:
     - name: POLICY_SET_ID
-      value: github
+      value: cwtoken
 
 settings:
   encodeUrl: true

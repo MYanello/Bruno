@@ -1,0 +1,7 @@
+name: VLLM
+variables:
+  - name: ENDPOINT
+    value: https://vllm.cw623e-myanello.coreweave.app
+    description: ""
+  - secret: true
+    name: API_KEY

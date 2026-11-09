@@ -1,0 +1,27 @@
+info:
+  name: Choice
+  type: http
+  seq: 2
+
+http:
+  method: POST
+  url: "{{ENDPOINT}}/v1/decisions"
+  body:
+    type: json
+    data: |-
+      {
+        "model": "{{MODEL}}",
+        "kind": "choice",
+        "state": "Since upgrading to the latest release, streaming responses stop halfway through whenever a fallback model takes over. Non-streaming requests still work. I have not narrowed down which change caused it, but it happens on most long prompts.",
+        "question": "Which part of the project does this issue belong to? Options: backend (Server, API routing, streaming, and fallbacks), sdk (The client library and its helpers), ui (The web dashboard), docs (Documentation and examples).",
+        "options": ["backend","sdk","ui","docs"],
+        "thinking": "auto"
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+  forwardAuthorizationHeader: false

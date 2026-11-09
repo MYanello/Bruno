@@ -1,0 +1,26 @@
+info:
+  name: Noul
+  type: http
+  seq: 1
+
+http:
+  method: POST
+  url: "{{ENDPOINT}}/v1/decisions"
+  body:
+    type: json
+    data: |-
+      {
+        "model": "{{MODEL}}",
+        "kind": "noul",
+        "state": "Since upgrading to the latest release, streaming responses stop halfway through whenever a fallback model takes over. Non-streaming requests still work. I have not narrowed down which change caused it, but it happens on most long prompts.",
+        "question": "Does this belong to the docs team?",
+        "thinking": "auto"
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+  forwardAuthorizationHeader: false

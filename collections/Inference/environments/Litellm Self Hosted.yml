@@ -1,0 +1,7 @@
+name: Litellm Self Hosted
+variables:
+  - name: ENDPOINT
+    value: https://llm.yanello.net
+    description: ""
+  - secret: true
+    name: API_KEY

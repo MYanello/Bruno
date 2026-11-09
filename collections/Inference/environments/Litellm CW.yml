@@ -1,0 +1,7 @@
+name: Litellm CW
+variables:
+  - name: ENDPOINT
+    value: https://litellm.s001db-us-east-06a-idp-stag.coreweave.app
+  - secret: true
+    name: API_KEY
+    description: ""
